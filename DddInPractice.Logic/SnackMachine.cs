@@ -3,61 +3,32 @@ namespace DddInPractice.Logic
 {
     public sealed class SnackMachine
     {
-        public int OneCentCount { get; private set; }
-        public int TenCentCount { get; private set; }
-        public int QuarterCentCount { get; private set; }
-        public int OneDollarCount { get; private set; }
-        public int FiveDollarCount { get; private set; }
-        public int TwentyDollarCount { get; private set; }
+        /// <summary>
+        /// The amount of money machine has
+        /// </summary>
+        public Money MoneyInside { get; private set; }
 
 
-        public int OneCentCountInTransaction { get;private set; }
-        public int TenCentCountInTransaction { get;private set; }
-        public int QuarterCentCountInTransaction { get;private set; }
-        public int OneDollarCountInTransaction { get;private set; }
-        public int FiveDollarCountInTransaction { get;private set; }
-        public int TwentyDollarCountInTransaction { get;private set; }
+        /// <summary>
+        /// The amount of money user inserted
+        /// </summary>
+        public Money MoneyInTransaction { get; private set; }
 
-        public void InsertMoney(int oneCentCount,
-            int tenCentCount,
-            int quarterCentCount,
-            int oneDollarCount,
-            int fiveDollarCount,
-            int twentyDollarCount)
+        public void InsertMoney(Money money)
         {
-            OneCentCountInTransaction += oneCentCount;
-            TenCentCountInTransaction += tenCentCount;
-            QuarterCentCountInTransaction += quarterCentCount;
-            OneDollarCountInTransaction += oneDollarCount;
-            FiveDollarCountInTransaction += fiveDollarCount;
-            TwentyDollarCountInTransaction += twentyDollarCount;
+            MoneyInTransaction += money;
         }
 
         public void ReturnMoney()
         {
-            OneCentCountInTransaction = 0;
-            TenCentCountInTransaction = 0;
-            QuarterCentCountInTransaction = 0;
-            OneDollarCountInTransaction = 0;
-            FiveDollarCountInTransaction = 0;
-            TwentyDollarCountInTransaction = 0;
+            //MoneyInTransaction = 0;
         }
 
         public void BuySnack()
         {
-            OneCentCount += OneCentCountInTransaction;
-            TenCentCount += TenCentCountInTransaction;
-            QuarterCentCount += QuarterCentCountInTransaction;
-            OneDollarCount += OneDollarCountInTransaction;
-            FiveDollarCount += FiveDollarCountInTransaction;
-            TwentyDollarCount += TwentyDollarCountInTransaction;
+            MoneyInside += MoneyInTransaction;
 
-            OneCentCountInTransaction = 0;
-            TenCentCountInTransaction = 0;
-            QuarterCentCountInTransaction = 0;
-            OneDollarCountInTransaction = 0;
-            FiveDollarCountInTransaction = 0;
-            TwentyDollarCountInTransaction = 0;
+            //MoneyInTransaction = 0;
         }
     }
 }
