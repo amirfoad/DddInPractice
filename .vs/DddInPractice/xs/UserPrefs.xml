@@ -1,4 +1,28 @@
 ﻿<Properties StartupConfiguration="{5968DCE2-9ED6-414E-8032-241F03ADB76A}|Unit Tests">
-  <MonoDevelop.Ide.ItemProperties.DddInPractice.Tests FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.DddInPractice.Tests PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="DddInPractice.Logic/Money.cs">
+    <Files>
+      <File FileName="DddInPractice.Tests/MoneySpecs.cs" Line="123" Column="19" />
+      <File FileName="DddInPractice.Logic/Money.cs" Line="3" Column="2" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="DddInPractice">
+            <Node name="DddInPractice.Logic" expanded="True" />
+            <Node name="DddInPractice.Tests" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

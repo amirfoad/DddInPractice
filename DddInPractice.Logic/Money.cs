@@ -3,6 +3,14 @@ namespace DddInPractice.Logic
 {
     public sealed class Money : ValueObject<Money>
     {
+        public static readonly Money None = new(0, 0, 0, 0, 0, 0);
+        public static readonly Money Cent = new(1, 0, 0, 0, 0, 0);
+        public static readonly Money TenCent = new(0, 1, 0, 0, 0, 0);
+        public static readonly Money Quarter = new(0, 0, 1, 0, 0, 0);
+        public static readonly Money Dollar = new(0, 0, 0, 1, 0, 0);
+        public static readonly Money FiveDollar = new(0, 0, 0, 0, 1, 0);
+        public static readonly Money TwentyDollar = new(0, 0, 0, 0, 0, 1);
+
         public int OneCentCount { get; }
         public int TenCentCount { get; }
         public int QuarterCentCount { get; }
