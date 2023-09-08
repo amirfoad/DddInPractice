@@ -1,8 +1,8 @@
 ﻿using System;
 namespace DddInPractice.Logic
 {
-	public sealed class Money :ValueObject<Money>
-	{
+    public sealed class Money : ValueObject<Money>
+    {
         public int OneCentCount { get; private set; }
         public int TenCentCount { get; private set; }
         public int QuarterCentCount { get; private set; }
@@ -16,6 +16,15 @@ namespace DddInPractice.Logic
             int fiveDollarCount,
             int twentyDollarCount)
         {
+
+            if (oneCentCount < 0
+                || tenCentCount < 0
+                || quarterCentCount < 0
+                || oneDollarCount < 0
+                || fiveDollarCount < 0
+                || twentyDollarCount < 0)
+                throw new InvalidOperationException();
+
             OneCentCount = oneCentCount;
             TenCentCount = tenCentCount;
             QuarterCentCount = quarterCentCount;
@@ -25,7 +34,7 @@ namespace DddInPractice.Logic
         }
 
 
-        public static Money operator +(Money money1,Money money2)
+        public static Money operator +(Money money1, Money money2)
         {
             Money sum = new(
                 money1.OneCentCount + money2.OneCentCount,
@@ -49,6 +58,7 @@ namespace DddInPractice.Logic
 
         protected override int GetHashCodeCore()
         {
+            //unchecked used to suppress overflow-checking for integral-type arithmetic operations and conversions
             unchecked
             {
                 int hashcode = OneCentCount;
