@@ -3,12 +3,21 @@ namespace DddInPractice.Logic
 {
     public sealed class Money : ValueObject<Money>
     {
-        public int OneCentCount { get; private set; }
-        public int TenCentCount { get; private set; }
-        public int QuarterCentCount { get; private set; }
-        public int OneDollarCount { get; private set; }
-        public int FiveDollarCount { get; private set; }
-        public int TwentyDollarCount { get; private set; }
+        public int OneCentCount { get; }
+        public int TenCentCount { get; }
+        public int QuarterCentCount { get; }
+        public int OneDollarCount { get; }
+        public int FiveDollarCount { get; }
+        public int TwentyDollarCount { get; }
+
+        public decimal Amount =>
+                    OneCentCount * 0.01m +
+                    TenCentCount * 0.10m +
+                    QuarterCentCount * 0.25m +
+                    OneDollarCount +
+                    FiveDollarCount * 5 +
+                    TwentyDollarCount * 20;
+
         public Money(int oneCentCount,
             int tenCentCount,
             int quarterCentCount,
@@ -43,6 +52,17 @@ namespace DddInPractice.Logic
                 money1.OneDollarCount + money2.OneDollarCount,
                 money1.FiveDollarCount + money2.FiveDollarCount,
                 money1.TwentyDollarCount + money2.TwentyDollarCount);
+            return sum;
+        }
+        public static Money operator -(Money money1, Money money2)
+        {
+            Money sum = new(
+                money1.OneCentCount - money2.OneCentCount,
+                money1.TenCentCount - money2.TenCentCount,
+                money1.QuarterCentCount - money2.QuarterCentCount,
+                money1.OneDollarCount - money2.OneDollarCount,
+                money1.FiveDollarCount - money2.FiveDollarCount,
+                money1.TwentyDollarCount - money2.TwentyDollarCount);
             return sum;
         }
 

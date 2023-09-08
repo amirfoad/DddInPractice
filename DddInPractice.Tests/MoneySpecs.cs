@@ -64,8 +64,66 @@ namespace DddInPractice.Tests
                 oneDollarCount,
                 fiveDollarCount,
                 twentyDollarCount);
-
             action.Should().Throw<InvalidOperationException>();
+        }
+
+        [Theory]
+        [InlineData(0,0,0,0,0,0,0)]
+        [InlineData(1,0,0,0,0,0,0.01)]
+        [InlineData(1, 2, 0, 0, 0, 0, 0.21)]
+        [InlineData(1, 2, 3, 0, 0, 0, 0.96)]
+        [InlineData(1, 2, 3, 4, 0, 0, 4.96)]
+        [InlineData(1, 2, 3, 4,5, 0, 29.96)]
+        [InlineData(1, 2, 3, 4, 5, 6, 149.96)]
+        [InlineData(110, 0, 0, 0, 100, 0, 501.1)]
+
+        public void Amount_is_calculated_correctly(int oneCentCount,
+            int tenCentCount,
+            int quarterCentCount,
+            int oneDollarCount,
+            int fiveDollarCount,
+            int twentyDollarCount, 
+            decimal exceptedAmount)
+        {
+            Money money = new(oneCentCount,
+                tenCentCount,
+                quarterCentCount,
+                oneDollarCount,
+                fiveDollarCount,
+                twentyDollarCount);
+
+            money.Amount.Should().Be(exceptedAmount);
+        }
+
+        [Fact]
+        public void Subtraction_of_two_moneys_produces_correct_result()
+        {
+            Money money1 = new(10, 10, 10, 10, 10, 10);
+            Money money2 = new(1, 2, 3, 4, 5, 6);
+
+            Money result = money1 - money2;
+
+            result.OneCentCount.Should().Be(9);
+            result.TenCentCount.Should().Be(8);
+            result.QuarterCentCount.Should().Be(7);
+            result.OneDollarCount.Should().Be(6);
+            result.FiveDollarCount.Should().Be(5);
+            result.TwentyDollarCount.Should().Be(4);
+        }
+
+
+        [Fact]
+        public void Cannot_subtract_more_than_exists()
+        {
+            Money money1 = new(0, 1, 0, 0, 0, 0);
+            Money money2 = new(1, 0, 0, 0, 0, 0);
+
+            Action action = () =>
+            {
+                Money money = money1 - money2;
+            };
+
+            action.Should().Throw<InvalidOperationException >();
         }
     }
 }
