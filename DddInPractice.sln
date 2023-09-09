@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DddInPractice.Logic", "DddI
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DddInPractice.Tests", "DddInPractice.Tests\DddInPractice.Tests.csproj", "{5968DCE2-9ED6-414E-8032-241F03ADB76A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DddInPractice.UI", "DddInPractice.UI\DddInPractice.UI.csproj", "{D175E580-B77D-4FCB-B1F0-5F5123677E96}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5968DCE2-9ED6-414E-8032-241F03ADB76A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5968DCE2-9ED6-414E-8032-241F03ADB76A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5968DCE2-9ED6-414E-8032-241F03ADB76A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D175E580-B77D-4FCB-B1F0-5F5123677E96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D175E580-B77D-4FCB-B1F0-5F5123677E96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D175E580-B77D-4FCB-B1F0-5F5123677E96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D175E580-B77D-4FCB-B1F0-5F5123677E96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

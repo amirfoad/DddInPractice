@@ -40,6 +40,16 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "FluentNHibernate": {
+              "target": "Package",
+              "version": "[3.2.1, )"
+            },
+            "NHibernate": {
+              "target": "Package",
+              "version": "[5.4.6, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
