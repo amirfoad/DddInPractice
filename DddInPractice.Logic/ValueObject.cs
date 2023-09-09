@@ -1,5 +1,4 @@
-﻿using System;
-namespace DddInPractice.Logic
+﻿namespace DddInPractice.Logic
 {
     public abstract class ValueObject<T>
         where T : ValueObject<T>
@@ -11,11 +10,14 @@ namespace DddInPractice.Logic
                 return false;
             return EqualsCore(valueObject);
         }
+
         protected abstract bool EqualsCore(T other);
+
         public override int GetHashCode()
         {
             return GetHashCodeCore();
         }
+
         protected abstract int GetHashCodeCore();
 
         public static bool operator ==(ValueObject<T> a, ValueObject<T> b)
@@ -28,10 +30,10 @@ namespace DddInPractice.Logic
 
             return a.Equals(b);
         }
+
         public static bool operator !=(ValueObject<T> a, ValueObject<T> b)
         {
             return !(a == b);
         }
     }
 }
-

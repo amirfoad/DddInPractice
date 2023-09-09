@@ -135,7 +135,12 @@ namespace DddInPractice.Tests
             int twentyDollarCount,
             string exceptedString)
         {
-            Money money = new(oneCentCount, tenCentCount, quarterCentCount, oneDollarCount, fiveDollarCount, twentyDollarCount);
+            Money money = new(oneCentCount,
+                tenCentCount,
+                quarterCentCount,
+                oneDollarCount,
+                fiveDollarCount,
+                twentyDollarCount);
 
             var moneyString = money.ToString();
 

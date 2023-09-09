@@ -1,21 +1,18 @@
-﻿using System;
-using static DddInPractice.Logic.Money;
+﻿using static DddInPractice.Logic.Money;
 
 namespace DddInPractice.Logic
 {
-    public sealed class SnackMachine :Entity
+    public sealed class SnackMachine : Entity
     {
         /// <summary>
         /// The amount of money machine has
         /// </summary>
         public Money MoneyInside { get; private set; } = None;
 
-
         /// <summary>
         /// The amount of money user inserted
         /// </summary>
         public Money MoneyInTransaction { get; private set; } = None;
-
 
         public void InsertMoney(Money money)
         {
@@ -39,4 +36,3 @@ namespace DddInPractice.Logic
         }
     }
 }
-
