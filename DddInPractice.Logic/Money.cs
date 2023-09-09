@@ -1,5 +1,4 @@
-﻿using System;
-namespace DddInPractice.Logic
+﻿namespace DddInPractice.Logic
 {
     public sealed class Money : ValueObject<Money>
     {
@@ -33,7 +32,6 @@ namespace DddInPractice.Logic
             int fiveDollarCount,
             int twentyDollarCount)
         {
-
             if (oneCentCount < 0
                 || tenCentCount < 0
                 || quarterCentCount < 0
@@ -50,7 +48,6 @@ namespace DddInPractice.Logic
             TwentyDollarCount = twentyDollarCount;
         }
 
-
         public static Money operator +(Money money1, Money money2)
         {
             Money sum = new(
@@ -62,6 +59,7 @@ namespace DddInPractice.Logic
                 money1.TwentyDollarCount + money2.TwentyDollarCount);
             return sum;
         }
+
         public static Money operator -(Money money1, Money money2)
         {
             Money sum = new(
@@ -98,6 +96,13 @@ namespace DddInPractice.Logic
                 return hashcode;
             }
         }
+
+        public override string ToString()
+        {
+            if (Amount < 1)
+                return "¢" + (Amount * 100).ToString("0");
+
+            return "$" + Amount.ToString("0.00");
+        }
     }
 }
-

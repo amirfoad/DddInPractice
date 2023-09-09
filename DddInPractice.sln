@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 25.0.1706.3
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DddInPractice.Logic", "DddInPractice.Logic\DddInPractice.Logic.csproj", "{B0A89D81-EB87-4C36-891D-B95306B6DB86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DddInPractice.Logic", "DddInPractice.Logic\DddInPractice.Logic.csproj", "{B0A89D81-EB87-4C36-891D-B95306B6DB86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DddInPractice.Tests", "DddInPractice.Tests\DddInPractice.Tests.csproj", "{5968DCE2-9ED6-414E-8032-241F03ADB76A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DddInPractice.Tests", "DddInPractice.Tests\DddInPractice.Tests.csproj", "{5968DCE2-9ED6-414E-8032-241F03ADB76A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

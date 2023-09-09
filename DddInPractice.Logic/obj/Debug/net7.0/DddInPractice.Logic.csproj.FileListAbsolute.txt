@@ -10,3 +10,15 @@
 /Users/Amirfoad/Documents/Projects/DddInPractice/DddInPractice.Logic/obj/Debug/net7.0/refint/DddInPractice.Logic.dll
 /Users/Amirfoad/Documents/Projects/DddInPractice/DddInPractice.Logic/obj/Debug/net7.0/DddInPractice.Logic.pdb
 /Users/Amirfoad/Documents/Projects/DddInPractice/DddInPractice.Logic/obj/Debug/net7.0/ref/DddInPractice.Logic.dll
+D:\Source\Current\DddInPractice\DddInPractice.Logic\bin\Debug\net7.0\DddInPractice.Logic.deps.json
+D:\Source\Current\DddInPractice\DddInPractice.Logic\bin\Debug\net7.0\DddInPractice.Logic.dll
+D:\Source\Current\DddInPractice\DddInPractice.Logic\bin\Debug\net7.0\DddInPractice.Logic.pdb
+D:\Source\Current\DddInPractice\DddInPractice.Logic\obj\Debug\net7.0\DddInPractice.Logic.csproj.AssemblyReference.cache
+D:\Source\Current\DddInPractice\DddInPractice.Logic\obj\Debug\net7.0\DddInPractice.Logic.GeneratedMSBuildEditorConfig.editorconfig
+D:\Source\Current\DddInPractice\DddInPractice.Logic\obj\Debug\net7.0\DddInPractice.Logic.AssemblyInfoInputs.cache
+D:\Source\Current\DddInPractice\DddInPractice.Logic\obj\Debug\net7.0\DddInPractice.Logic.AssemblyInfo.cs
+D:\Source\Current\DddInPractice\DddInPractice.Logic\obj\Debug\net7.0\DddInPractice.Logic.csproj.CoreCompileInputs.cache
+D:\Source\Current\DddInPractice\DddInPractice.Logic\obj\Debug\net7.0\DddInPractice.Logic.dll
+D:\Source\Current\DddInPractice\DddInPractice.Logic\obj\Debug\net7.0\refint\DddInPractice.Logic.dll
+D:\Source\Current\DddInPractice\DddInPractice.Logic\obj\Debug\net7.0\DddInPractice.Logic.pdb
+D:\Source\Current\DddInPractice\DddInPractice.Logic\obj\Debug\net7.0\ref\DddInPractice.Logic.dll

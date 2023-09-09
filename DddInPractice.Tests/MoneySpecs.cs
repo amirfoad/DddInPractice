@@ -19,7 +19,6 @@ namespace DddInPractice.Tests
             sum.OneDollarCount.Should().Be(8);
             sum.FiveDollarCount.Should().Be(10);
             sum.TwentyDollarCount.Should().Be(12);
-
         }
 
         [Fact]
@@ -37,7 +36,6 @@ namespace DddInPractice.Tests
         {
             var dollar = new Money(0, 0, 0, 1, 0, 0);
             var hundredCents = new Money(100, 0, 0, 0, 0, 0);
-
 
             dollar.Should().NotBe(hundredCents);
             dollar.GetHashCode().Should().NotBe(hundredCents.GetHashCode());
@@ -68,21 +66,20 @@ namespace DddInPractice.Tests
         }
 
         [Theory]
-        [InlineData(0,0,0,0,0,0,0)]
-        [InlineData(1,0,0,0,0,0,0.01)]
+        [InlineData(0, 0, 0, 0, 0, 0, 0)]
+        [InlineData(1, 0, 0, 0, 0, 0, 0.01)]
         [InlineData(1, 2, 0, 0, 0, 0, 0.21)]
         [InlineData(1, 2, 3, 0, 0, 0, 0.96)]
         [InlineData(1, 2, 3, 4, 0, 0, 4.96)]
-        [InlineData(1, 2, 3, 4,5, 0, 29.96)]
+        [InlineData(1, 2, 3, 4, 5, 0, 29.96)]
         [InlineData(1, 2, 3, 4, 5, 6, 149.96)]
         [InlineData(110, 0, 0, 0, 100, 0, 501.1)]
-
         public void Amount_is_calculated_correctly(int oneCentCount,
             int tenCentCount,
             int quarterCentCount,
             int oneDollarCount,
             int fiveDollarCount,
-            int twentyDollarCount, 
+            int twentyDollarCount,
             decimal exceptedAmount)
         {
             Money money = new(oneCentCount,
@@ -111,7 +108,6 @@ namespace DddInPractice.Tests
             result.TwentyDollarCount.Should().Be(4);
         }
 
-
         [Fact]
         public void Cannot_subtract_more_than_exists()
         {
@@ -123,8 +119,27 @@ namespace DddInPractice.Tests
                 Money money = money1 - money2;
             };
 
-            action.Should().Throw<InvalidOperationException >();
+            action.Should().Throw<InvalidOperationException>();
+        }
+
+        [Theory]
+        [InlineData(1, 0, 0, 0, 0, 0, "¢1")]
+        [InlineData(0, 0, 0, 1, 0, 0, "$1.00")]
+        [InlineData(1, 0, 0, 1, 0, 0, "$1.01")]
+        [InlineData(0, 0, 2, 1, 0, 0, "$1.50")]
+        public void To_string_should_return_amount_of_money(int oneCentCount,
+            int tenCentCount,
+            int quarterCentCount,
+            int oneDollarCount,
+            int fiveDollarCount,
+            int twentyDollarCount,
+            string exceptedString)
+        {
+            Money money = new(oneCentCount, tenCentCount, quarterCentCount, oneDollarCount, fiveDollarCount, twentyDollarCount);
+
+            var moneyString = money.ToString();
+
+            moneyString.Should().Be(exceptedString);
         }
     }
 }
-
