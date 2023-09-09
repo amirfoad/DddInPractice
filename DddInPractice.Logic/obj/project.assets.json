@@ -6663,27 +6663,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\a.ahmadi\\.nuget\\packages\\": {}
+    "/Users/Amirfoad/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Source\\Current\\DddInPractice\\DddInPractice.Logic\\DddInPractice.Logic.csproj",
+      "projectUniqueName": "/Users/Amirfoad/Documents/Projects/DddInPractice/DddInPractice.Logic/DddInPractice.Logic.csproj",
       "projectName": "DddInPractice.Logic",
-      "projectPath": "D:\\Source\\Current\\DddInPractice\\DddInPractice.Logic\\DddInPractice.Logic.csproj",
-      "packagesPath": "C:\\Users\\a.ahmadi\\.nuget\\packages\\",
-      "outputPath": "D:\\Source\\Current\\DddInPractice\\DddInPractice.Logic\\obj\\",
+      "projectPath": "/Users/Amirfoad/Documents/Projects/DddInPractice/DddInPractice.Logic/DddInPractice.Logic.csproj",
+      "packagesPath": "/Users/Amirfoad/.nuget/packages/",
+      "outputPath": "/Users/Amirfoad/Documents/Projects/DddInPractice/DddInPractice.Logic/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\a.ahmadi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/Amirfoad/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://192.168.2.164/NugetServer/Nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -6731,16 +6728,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1803",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://192.168.2.164/NugetServer/Nuget'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
-    }
-  ]
+  }
 }
