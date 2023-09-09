@@ -12,7 +12,7 @@
 
         public int OneCentCount { get; }
         public int TenCentCount { get; }
-        public int QuarterCentCount { get; }
+        public int QuarterCount { get; }
         public int OneDollarCount { get; }
         public int FiveDollarCount { get; }
         public int TwentyDollarCount { get; }
@@ -20,17 +20,20 @@
         public decimal Amount =>
                     OneCentCount * 0.01m +
                     TenCentCount * 0.10m +
-                    QuarterCentCount * 0.25m +
+                    QuarterCount * 0.25m +
                     OneDollarCount +
                     FiveDollarCount * 5 +
                     TwentyDollarCount * 20;
+
+        private Money()
+        { }
 
         public Money(int oneCentCount,
             int tenCentCount,
             int quarterCentCount,
             int oneDollarCount,
             int fiveDollarCount,
-            int twentyDollarCount)
+            int twentyDollarCount) : this()
         {
             if (oneCentCount < 0
                 || tenCentCount < 0
@@ -42,7 +45,7 @@
 
             OneCentCount = oneCentCount;
             TenCentCount = tenCentCount;
-            QuarterCentCount = quarterCentCount;
+            QuarterCount = quarterCentCount;
             OneDollarCount = oneDollarCount;
             FiveDollarCount = fiveDollarCount;
             TwentyDollarCount = twentyDollarCount;
@@ -53,7 +56,7 @@
             Money sum = new(
                 money1.OneCentCount + money2.OneCentCount,
                 money1.TenCentCount + money2.TenCentCount,
-                money1.QuarterCentCount + money2.QuarterCentCount,
+                money1.QuarterCount + money2.QuarterCount,
                 money1.OneDollarCount + money2.OneDollarCount,
                 money1.FiveDollarCount + money2.FiveDollarCount,
                 money1.TwentyDollarCount + money2.TwentyDollarCount);
@@ -65,7 +68,7 @@
             Money sum = new(
                 money1.OneCentCount - money2.OneCentCount,
                 money1.TenCentCount - money2.TenCentCount,
-                money1.QuarterCentCount - money2.QuarterCentCount,
+                money1.QuarterCount - money2.QuarterCount,
                 money1.OneDollarCount - money2.OneDollarCount,
                 money1.FiveDollarCount - money2.FiveDollarCount,
                 money1.TwentyDollarCount - money2.TwentyDollarCount);
@@ -76,7 +79,7 @@
         {
             return OneCentCount == other.OneCentCount
                 && TenCentCount == other.TenCentCount
-                && QuarterCentCount == other.QuarterCentCount
+                && QuarterCount == other.QuarterCount
                 && OneDollarCount == other.OneDollarCount
                 && FiveDollarCount == other.FiveDollarCount
                 && TwentyDollarCount == other.TwentyDollarCount;
@@ -89,7 +92,7 @@
             {
                 int hashcode = OneCentCount;
                 hashcode = (hashcode * 397) ^ TenCentCount;
-                hashcode = (hashcode * 397) ^ QuarterCentCount;
+                hashcode = (hashcode * 397) ^ QuarterCount;
                 hashcode = (hashcode * 397) ^ OneDollarCount;
                 hashcode = (hashcode * 397) ^ FiveDollarCount;
                 hashcode = (hashcode * 397) ^ TwentyDollarCount;

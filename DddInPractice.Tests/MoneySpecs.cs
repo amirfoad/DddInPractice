@@ -15,7 +15,7 @@ namespace DddInPractice.Tests
 
             sum.OneCentCount.Should().Be(2);
             sum.TenCentCount.Should().Be(4);
-            sum.QuarterCentCount.Should().Be(6);
+            sum.QuarterCount.Should().Be(6);
             sum.OneDollarCount.Should().Be(8);
             sum.FiveDollarCount.Should().Be(10);
             sum.TwentyDollarCount.Should().Be(12);
@@ -102,7 +102,7 @@ namespace DddInPractice.Tests
 
             result.OneCentCount.Should().Be(9);
             result.TenCentCount.Should().Be(8);
-            result.QuarterCentCount.Should().Be(7);
+            result.QuarterCount.Should().Be(7);
             result.OneDollarCount.Should().Be(6);
             result.FiveDollarCount.Should().Be(5);
             result.TwentyDollarCount.Should().Be(4);

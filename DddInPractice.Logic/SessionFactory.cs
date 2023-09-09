@@ -5,6 +5,7 @@ using FluentNHibernate.Conventions.AcceptanceCriteria;
 using FluentNHibernate.Conventions.Helpers;
 using FluentNHibernate.Conventions.Instances;
 using NHibernate;
+using NHibernate.Driver;
 using System.Reflection;
 
 namespace DddInPractice.Logic
@@ -26,7 +27,7 @@ namespace DddInPractice.Logic
         private static ISessionFactory BuildSessionFactory(string connectionString)
         {
             FluentConfiguration configuration = Fluently.Configure()
-                .Database(MsSqlConfiguration.MsSql2012.Driver<NHibernate.Driver.MicrosoftDataSqlClientDriver>().ConnectionString(connectionString))
+                .Database(MsSqlConfiguration.MsSql7.Driver<MicrosoftDataSqlClientDriver>().ConnectionString(connectionString))
                 .Mappings(m => m.FluentMappings
                     .AddFromAssembly(Assembly.GetExecutingAssembly())
                     .Conventions.Add(
