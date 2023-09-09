@@ -17,7 +17,7 @@ namespace DddInPractice.Logic
         public virtual void InsertMoney(Money money)
         {
             Money[] coinAndNotes = { Cent, TenCent, Quarter, Dollar, FiveDollar, TwentyDollar };
-            if (coinAndNotes.Contains(money))
+            if (!coinAndNotes.Contains(money))
                 throw new InvalidOperationException();
 
             MoneyInTransaction += money;
