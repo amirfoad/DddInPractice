@@ -2,7 +2,7 @@
 
 namespace DddInPractice.Logic
 {
-    public class SnackMachine : Entity
+    public class SnackMachine : AggregateRoot
     {
         /// <summary>
         /// The amount of money machine has
@@ -14,7 +14,7 @@ namespace DddInPractice.Logic
         /// </summary>
         public virtual Money MoneyInTransaction { get; protected set; } 
 
-        public virtual IList<Slot> Slots { get; protected set; }
+        protected virtual IList<Slot> Slots { get;  set; }
 
         public SnackMachine()
         {
@@ -22,9 +22,9 @@ namespace DddInPractice.Logic
             MoneyInTransaction = None; 
             Slots = new List<Slot>()
             {
-                new Slot(null,0,0m,this,1),
-                new Slot(null,0,0m,this,2),
-                new Slot(null,0,0m,this,3),
+                new Slot(null,1),
+                new Slot(null,2),
+                new Slot(null,3 ),
             };
         }
 
@@ -48,21 +48,19 @@ namespace DddInPractice.Logic
         public virtual void  BuySnack(int position)
         {
             Slot slot = Slots.Single(s => s.Position == position);
-            slot.Quantity--;
+            slot.SnackPile = slot.SnackPile.SubstractOne(); 
             MoneyInside += MoneyInTransaction;
 
             MoneyInTransaction = None;
         }
 
         public virtual void LoadSnacks(int position,
-            Snack snack,
-            int quantity,
-            decimal price)
+            SnackPile snackPile)
         {
             Slot slot = Slots.Single(snack => snack.Position == position);
-            slot.Snack = snack;
-            slot.Quantity = quantity;
-            slot.Price = price;
+            slot.SnackPile = snackPile;
         }
+
+        public SnackPile GetSnackPile(int position) => Slots.Single(s => s.Position == position).SnackPile;
     }
 }
