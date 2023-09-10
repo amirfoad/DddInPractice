@@ -48,6 +48,10 @@ namespace DddInPractice.Logic
         public virtual void  BuySnack(int position)
         {
             Slot slot =GetSlot(position);
+
+            if (slot.SnackPile.Price > MoneyInTransaction.Amount)
+                throw new InvalidOperationException();
+            
             slot.SnackPile = slot.SnackPile.SubstractOne(); 
             MoneyInside += MoneyInTransaction;
 

@@ -55,5 +55,27 @@ namespace DddInPractice.Tests
             snackMachine.GetSnackPile(1).Quantity.Should().Be(9);
             
         }
+
+        [Fact]
+        public void Cannot_make_purchase_when_there_is_no_snacks()
+        {
+            var snackMachine = new SnackMachine();
+
+            Action action = () => snackMachine.BuySnack(1);
+
+            action.Should().Throw<InvalidOperationException>();
+        }
+
+        [Fact]
+        public void Cannot_make_purchase_if_not_enough_money_inserted()
+        {
+            var snackMachine = new SnackMachine();
+            snackMachine.LoadSnacks(1,new SnackPile(new Snack("Some snack"),1,2m));
+            snackMachine.InsertMoney(Money.Dollar);
+
+            Action action = () => snackMachine.BuySnack(1);
+
+            action.Should().Throw<InvalidOperationException>();
+        }
     }
 }
