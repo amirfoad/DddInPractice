@@ -15,6 +15,15 @@ public sealed class SnackPile : ValueObject<SnackPile>
         int quantity,
         decimal price) : this()
     {
+        if (Quantity < 0)
+            throw new InvalidOperationException();
+
+        if (Price < 0)
+            throw new InvalidOperationException();
+
+        if (Price % 0.01m > 0)
+            throw new InvalidOperationException();
+        
         Snack = snack;
         Quantity = quantity;
         Price = price;
