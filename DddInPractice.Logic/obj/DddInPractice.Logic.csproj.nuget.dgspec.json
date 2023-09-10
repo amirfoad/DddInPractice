@@ -1,25 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "/Users/Amirfoad/Documents/Projects/DddInPractice/DddInPractice.Logic/DddInPractice.Logic.csproj": {}
+    "D:\\Source\\Current\\DddInPractice\\DddInPractice.Logic\\DddInPractice.Logic.csproj": {}
   },
   "projects": {
-    "/Users/Amirfoad/Documents/Projects/DddInPractice/DddInPractice.Logic/DddInPractice.Logic.csproj": {
+    "D:\\Source\\Current\\DddInPractice\\DddInPractice.Logic\\DddInPractice.Logic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Amirfoad/Documents/Projects/DddInPractice/DddInPractice.Logic/DddInPractice.Logic.csproj",
+        "projectUniqueName": "D:\\Source\\Current\\DddInPractice\\DddInPractice.Logic\\DddInPractice.Logic.csproj",
         "projectName": "DddInPractice.Logic",
-        "projectPath": "/Users/Amirfoad/Documents/Projects/DddInPractice/DddInPractice.Logic/DddInPractice.Logic.csproj",
-        "packagesPath": "/Users/Amirfoad/.nuget/packages/",
-        "outputPath": "/Users/Amirfoad/Documents/Projects/DddInPractice/DddInPractice.Logic/obj/",
+        "projectPath": "D:\\Source\\Current\\DddInPractice\\DddInPractice.Logic\\DddInPractice.Logic.csproj",
+        "packagesPath": "C:\\Users\\a.ahmadi\\.nuget\\packages\\",
+        "outputPath": "D:\\Source\\Current\\DddInPractice\\DddInPractice.Logic\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/Amirfoad/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\a.ahmadi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://192.168.2.164/NugetServer/Nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -67,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
