@@ -1,4 +1,5 @@
-﻿using static DddInPractice.Logic.Money;
+﻿using NHibernate.Proxy;
+using static DddInPractice.Logic.Money;
 
 namespace DddInPractice.Logic
 {
@@ -60,7 +61,13 @@ namespace DddInPractice.Logic
                 throw new InvalidOperationException();
             
             slot.SnackPile = slot.SnackPile.SubstractOne();
+        
 
+            Money change = MoneyInside.Allocate(MoneyInTransaction - slot.SnackPile.Price);
+            if (change.Amount < MoneyInTransaction - slot.SnackPile.Price)
+                throw new InvalidOperationException();
+            
+            MoneyInside -= change; 
             MoneyInTransaction = 0;
         }
 

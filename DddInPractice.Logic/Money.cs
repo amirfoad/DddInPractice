@@ -51,6 +51,17 @@
             TwentyDollarCount = twentyDollarCount;
         }
 
+        public static Money operator *(Money money,int multiplier)
+        {
+            Money sum = new(
+                money.OneCentCount * multiplier,
+                money.TenCentCount * multiplier,
+                money.QuarterCount * multiplier,
+                money.OneDollarCount * multiplier,
+                money.FiveDollarCount * multiplier,
+                money.TwentyDollarCount * multiplier);
+            return sum;
+        }
         public static Money operator +(Money money1, Money money2)
         {
             Money sum = new(
