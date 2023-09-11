@@ -116,10 +116,10 @@ namespace DddInPractice.Tests
         public void Cannot_buy_snack_if_not_enough_change()
         {
             SnackMachine snackMachine = new();
-            snackMachine.LoadSnacks(2,new SnackPile(new Snack("Some Snack"),1,0.5m));
+            snackMachine.LoadSnacks(1,new SnackPile(new Snack("Some Snack"),1,0.5m));
             snackMachine.InsertMoney(Dollar);
 
-            Action action = () => snackMachine.BuySnack(2);
+            Action action = () => snackMachine.BuySnack(1);
 
             action.Should().Throw<InvalidOperationException>();
         }
