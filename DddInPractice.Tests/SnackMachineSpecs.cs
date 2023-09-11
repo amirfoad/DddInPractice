@@ -95,5 +95,33 @@ namespace DddInPractice.Tests
             snackMachine.MoneyInside.OneDollarCount.Should().Be(0);
 
         }
+
+
+        [Fact]
+        public void After_purchase_change_is_returned()
+        {
+            SnackMachine snackMachine = new();
+            snackMachine.LoadSnacks(1,new SnackPile(new Snack("Some Snack"),1,0.5m));
+            snackMachine.LoadMoney(TenCent * 10);
+            
+            snackMachine.InsertMoney(Dollar);
+            snackMachine.BuySnack(1);
+
+            snackMachine.MoneyInside.Amount.Should().Be(1.5m);
+            snackMachine.MoneyInTransaction.Should().Be(0m);
+
+        }
+
+        [Fact]
+        public void Cannot_buy_snack_if_not_enough_change()
+        {
+            SnackMachine snackMachine = new();
+            snackMachine.LoadSnacks(1,new SnackPile(new Snack("Some Snack"),1,0.5m));
+            snackMachine.InsertMoney(Dollar);
+
+            Action action = () => snackMachine.BuySnack(1);
+
+            action.Should().Throw<InvalidOperationException>();
+        }
     }
 }
