@@ -14,7 +14,7 @@ namespace DddInPractice.Tests
 
             snackMachine.ReturnMoney();
 
-            snackMachine.MoneyInTransaction.Amount.Should().Be(0);
+            snackMachine.MoneyInTransaction.Should().Be(0);
         }
 
         [Fact]
@@ -25,7 +25,7 @@ namespace DddInPractice.Tests
             snackMachine.InsertMoney(Dollar);
             snackMachine.InsertMoney(Cent);
 
-            snackMachine.MoneyInTransaction.Amount.Should().Be(1.01m);
+            snackMachine.MoneyInTransaction.Should().Be(1.01m);
         }
 
         [Fact]
@@ -48,7 +48,7 @@ namespace DddInPractice.Tests
 
             snackMachine.BuySnack(1);
 
-            snackMachine.MoneyInTransaction.Should().Be(None);
+            snackMachine.MoneyInTransaction.Should().Be(0);
             snackMachine.MoneyInside.Amount.Should().Be(1m);
 
 
@@ -71,11 +71,29 @@ namespace DddInPractice.Tests
         {
             var snackMachine = new SnackMachine();
             snackMachine.LoadSnacks(1,new SnackPile(new Snack("Some snack"),1,2m));
-            snackMachine.InsertMoney(Money.Dollar);
+            snackMachine.InsertMoney(Dollar);
 
             Action action = () => snackMachine.BuySnack(1);
 
             action.Should().Throw<InvalidOperationException>();
+        }
+
+        [Fact]
+        public void Snack_machine_returns_money_with_highest_denomination_first()
+        {
+            SnackMachine snackMachine = new();
+            snackMachine.LoadMoney(Dollar);
+            
+            
+            snackMachine.InsertMoney(Quarter);
+            snackMachine.InsertMoney(Quarter);
+            snackMachine.InsertMoney(Quarter);
+            snackMachine.InsertMoney(Quarter);
+            snackMachine.ReturnMoney();
+
+            snackMachine.MoneyInside.QuarterCount.Should().Be(4);
+            snackMachine.MoneyInside.OneDollarCount.Should().Be(0);
+
         }
     }
 }
