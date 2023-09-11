@@ -1,5 +1,4 @@
-﻿using NHibernate.Proxy;
-using static DddInPractice.Logic.Money;
+﻿using static DddInPractice.Logic.Money;
 
 namespace DddInPractice.Logic
 {

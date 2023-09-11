@@ -10,9 +10,15 @@ namespace DddInPractice.Tests
         {
             SessionFactory.Init(@"Server=.;Database=DddInPractice;Trusted_Connection=true;TrustServerCertificate=True");
 
-            using ISession session = SessionFactory.OpenSession();
-            long id = 1;
-            var snackMachine = session.Get<SnackMachine>(id);
+
+            var repository = new SnackMachineRepository();
+            SnackMachine snackMachine = repository.GetById(1);
+
+            snackMachine.InsertMoney(Money.Dollar);
+            snackMachine.InsertMoney(Money.Dollar);
+            snackMachine.InsertMoney(Money.Dollar);
+            snackMachine.BuySnack(1);
+            repository.Save(snackMachine);
         }
     }
 }

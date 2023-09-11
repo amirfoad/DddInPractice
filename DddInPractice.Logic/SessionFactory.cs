@@ -27,7 +27,7 @@ namespace DddInPractice.Logic
         private static ISessionFactory BuildSessionFactory(string connectionString)
         {
             FluentConfiguration configuration = Fluently.Configure()
-                .Database(MsSqlConfiguration.MsSql7.Driver<MicrosoftDataSqlClientDriver>().ConnectionString(connectionString))
+                .Database(MsSqlConfiguration.MsSql2012.Driver<MicrosoftDataSqlClientDriver>().ConnectionString(connectionString))
                 .Mappings(m => m.FluentMappings
                     .AddFromAssembly(Assembly.GetExecutingAssembly())
                     .Conventions.Add(
