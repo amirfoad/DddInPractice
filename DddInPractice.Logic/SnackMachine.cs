@@ -52,20 +52,30 @@ namespace DddInPractice.Logic
         {
             MoneyInside += money;
         }
+
+        public virtual string CanBuySnack(int position)
+        {
+            SnackPile snackPile = GetSnackPile(position);
+            if (snackPile.Quantity == 0)
+                return "The snack pile is empty";
+
+            if (MoneyInTransaction < snackPile.Price)
+                return "Not enough money";
+
+            if (!MoneyInside.CanAllocate(MoneyInTransaction - snackPile.Price))
+                return "Not enough change";
+            
+            return String.Empty;
+                
+        }
         public virtual void  BuySnack(int position)
         {
+            if (CanBuySnack(position) != string.Empty)
+                throw new InvalidOperationException();
+            
             Slot slot =GetSlot(position);
-
-            if (slot.SnackPile.Price > MoneyInTransaction)
-                throw new InvalidOperationException();
-            
             slot.SnackPile = slot.SnackPile.SubstractOne();
-        
-
             Money change = MoneyInside.Allocate(MoneyInTransaction - slot.SnackPile.Price);
-            if (change.Amount < MoneyInTransaction - slot.SnackPile.Price)
-                throw new InvalidOperationException();
-            
             MoneyInside -= change; 
             MoneyInTransaction = 0;
         }
@@ -79,6 +89,9 @@ namespace DddInPractice.Logic
         
         public virtual SnackPile GetSnackPile(int position) => GetSlot(position).SnackPile;
 
+        public virtual IReadOnlyList<SnackPile> GetAllSnackPiles() => Slots.OrderBy(s => s.Position)
+            .Select(s => s.SnackPile)
+            .ToList(); 
         private Slot GetSlot(int position) => Slots.Single(s => s.Position == position);
     }
 }

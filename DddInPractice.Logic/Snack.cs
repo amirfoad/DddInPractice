@@ -14,6 +14,7 @@ public class Snack:AggregateRoot
         ,string name)
         :this()
     {
+        Id = id;
         Name = name;
     }
 }

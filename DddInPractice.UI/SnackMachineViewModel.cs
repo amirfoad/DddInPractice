@@ -1,4 +1,7 @@
-﻿using DddInPractice.Logic;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Azure.Core;
+using DddInPractice.Logic;
 using DddInPractice.UI.Common;
 using NHibernate;
 
@@ -7,10 +10,20 @@ namespace DddInPractice.UI
     public class SnackMachineViewModel : ViewModel
     {
         private readonly SnackMachine _snackMachine;
-
+        private readonly SnackMachineRepository _repository;
         public override string Caption => "Snack Machine";
         public string MoneyInTransaction => _snackMachine.MoneyInTransaction.ToString();
         public Money MoneyInside => _snackMachine.MoneyInside;
+
+        public IReadOnlyList<SnackPileViewModel> Piles
+        {
+            get
+            {
+                return _snackMachine.GetAllSnackPiles()
+                    .Select(s => new SnackPileViewModel(s))
+                    .ToList();
+            }
+        }
 
         private string _message = "";
 
@@ -31,31 +44,33 @@ namespace DddInPractice.UI
         public Command InsertFiveDollarCommand { get; private set; }
         public Command InsertTwentyDollarCommand { get; private set; }
         public Command ReturnMoneyCommand { get; private set; }
-        public Command BuySnackCommand { get; private set; }
+        public Command<string> BuySnackCommand { get; private set; }
 
         public SnackMachineViewModel(SnackMachine snackMachine)
         {
             _snackMachine = snackMachine;
-
+            _repository = new SnackMachineRepository();
             InsertCentCommand = new Command(() => InsertMoney(Money.Cent));
             InsertTenCentCommand = new Command(() => InsertMoney(Money.TenCent));
             InsertQuarterCommand = new Command(() => InsertMoney(Money.Quarter));
             InsertDollarCommand = new Command(() => InsertMoney(Money.Dollar));
             InsertFiveDollarCommand = new Command(() => InsertMoney(Money.FiveDollar));
             InsertTwentyDollarCommand = new Command(() => InsertMoney(Money.TwentyDollar));
-            ReturnMoneyCommand = new Command(() => ReturnMoney());
-            BuySnackCommand = new Command(() => BuySnack());
+            ReturnMoneyCommand = new Command(()=>ReturnMoney());
+            BuySnackCommand = new Command<string>(BuySnack);
         }
 
-        private void BuySnack()
+        private void BuySnack(string positionString)
         {
-            _snackMachine.BuySnack(1 );
-            using (ISession session = SessionFactory.OpenSession())
-            using (ITransaction transaction = session.BeginTransaction())
+            int position = int.Parse(positionString);
+            string errorMessage = _snackMachine.CanBuySnack(position);
+            if (!string.IsNullOrEmpty(errorMessage))
             {
-                session.SaveOrUpdate(_snackMachine);
-                transaction.Commit();
+                NotifyClient(errorMessage);
+                return;
             }
+            _snackMachine.BuySnack(position);
+            _repository.Save(_snackMachine);
             NotifyClient("You have bought a snack");
         }
 
@@ -76,6 +91,7 @@ namespace DddInPractice.UI
             Message = message;
             Notify(nameof(MoneyInTransaction));
             Notify(nameof(MoneyInside));
+            Notify(nameof(Piles));
         }
     }
 }

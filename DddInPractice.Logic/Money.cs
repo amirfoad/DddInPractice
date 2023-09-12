@@ -121,6 +121,13 @@
 
         public Money Allocate(decimal amount)
         {
+            if (!CanAllocate(amount))
+                throw new InvalidOperationException();
+
+            return AllocateCore(amount);
+        }
+        public Money AllocateCore(decimal amount)
+        {
             int twentyDollarCount = Math.Min((int)(amount / 20), TwentyDollarCount);
             amount = amount - twentyDollarCount * 20;
             
@@ -147,6 +154,12 @@
                 oneDollarCount,
                 fiveDollarCount,
                 twentyDollarCount);
+        }
+
+        public bool CanAllocate(decimal amount)
+        {
+            Money money = AllocateCore(amount);
+            return money.Amount == amount;
         }
     }
 }
