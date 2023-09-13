@@ -1,4 +1,7 @@
-﻿namespace DddInPractice.Logic;
+﻿using DddInPractice.Logic.Common;
+using DddInPractice.Logic.SharedKernel;
+
+namespace DddInPractice.Logic.SnackMachines;
 
 public class SnackMachineRepository:Repository<SnackMachine>
 {

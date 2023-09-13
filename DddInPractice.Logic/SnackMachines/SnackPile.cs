@@ -1,4 +1,6 @@
-﻿namespace DddInPractice.Logic;
+﻿using DddInPractice.Logic.Common;
+
+namespace DddInPractice.Logic.SnackMachines;
 
 public sealed class SnackPile : ValueObject<SnackPile>
 {

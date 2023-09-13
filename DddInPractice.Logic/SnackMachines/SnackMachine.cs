@@ -1,6 +1,8 @@
-﻿using static DddInPractice.Logic.Money;
+﻿using DddInPractice.Logic.Common;
+using DddInPractice.Logic.SharedKernel;
+using static DddInPractice.Logic.SharedKernel.Money;
 
-namespace DddInPractice.Logic
+namespace DddInPractice.Logic.SnackMachines
 {
     public class SnackMachine : AggregateRoot
     {

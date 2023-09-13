@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Azure.Core;
-using DddInPractice.Logic;
+using DddInPractice.Logic.SharedKernel;
+using DddInPractice.Logic.SnackMachines;
 using DddInPractice.UI.Common;
-using NHibernate;
 
-namespace DddInPractice.UI
+namespace DddInPractice.UI.SnackMachines
 {
     public class SnackMachineViewModel : ViewModel
     {

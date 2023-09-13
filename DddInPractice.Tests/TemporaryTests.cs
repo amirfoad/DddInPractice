@@ -1,4 +1,6 @@
 ﻿using DddInPractice.Logic;
+using DddInPractice.Logic.SharedKernel;
+using DddInPractice.Logic.SnackMachines;
 using NHibernate;
 
 namespace DddInPractice.Tests

@@ -1,6 +1,6 @@
 ﻿using NHibernate.Proxy;
 
-namespace DddInPractice.Logic
+namespace DddInPractice.Logic.Common
 {
     public abstract class Entity
     {

@@ -1,4 +1,6 @@
-﻿namespace DddInPractice.Logic
+﻿using DddInPractice.Logic.Common;
+
+namespace DddInPractice.Logic.SharedKernel
 {
     public sealed class Money : ValueObject<Money>
     {

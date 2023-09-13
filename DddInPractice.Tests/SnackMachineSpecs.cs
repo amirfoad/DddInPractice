@@ -1,6 +1,7 @@
 ﻿using DddInPractice.Logic;
+using DddInPractice.Logic.SnackMachines;
 using FluentAssertions;
-using static DddInPractice.Logic.Money;
+using static DddInPractice.Logic.SharedKernel.Money;
 
 namespace DddInPractice.Tests
 {

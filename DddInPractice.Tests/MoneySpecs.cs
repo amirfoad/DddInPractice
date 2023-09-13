@@ -1,4 +1,5 @@
 ﻿using DddInPractice.Logic;
+using DddInPractice.Logic.SharedKernel;
 using FluentAssertions;
 
 namespace DddInPractice.Tests
